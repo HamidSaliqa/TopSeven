@@ -13,7 +13,7 @@ class _HomePageState extends State<HomePage> {
   final List<String> libraryNames = [
     "Lottie",
     "Share",
-    "animated_text_kit",
+    "animated_text",
     "animated_size_and_fade",
     "animated_size_and_fade",
     "animated_size_and_fade",
@@ -24,13 +24,17 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Top seven"),
+        title: Text(
+          "Top seven",
+          style: TextStyle(fontSize: 30),
+        ),
+        backgroundColor: Colors.deepPurple[900],
       ),
-      body: ListView.builder(
-        itemCount: libraryNames.length,
-        itemBuilder: (context, index) {
+      body: GridView.count(
+        crossAxisCount: 2, // تعداد ستون‌ها
+        children: List.generate(libraryNames.length, (index) {
           return CustomButton(nameOfLibrary: libraryNames[index]);
-        },
+        }),
       ),
     );
   }
@@ -43,8 +47,14 @@ class CustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
+    return Container(
+      padding: EdgeInsets.all(10),
+      decoration: BoxDecoration(boxShadow: [
+        BoxShadow(color: Colors.black12, offset: Offset(2, 2), blurRadius: 8)
+      ]),
       child: ElevatedButton(
+        style: ButtonStyle(
+            backgroundColor: MaterialStatePropertyAll(Colors.deepPurple[900])),
         onPressed: () => forOnpressed(context),
         child: Text(
           nameOfLibrary,
