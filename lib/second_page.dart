@@ -14,8 +14,10 @@ class _SeconPageState extends State<SeconPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       appBar: AppBar(
         title: Text("Second Page"),
+        backgroundColor: Colors.deepPurple[900],
       ),
       body: Center(
         child: widget.yourWidget,

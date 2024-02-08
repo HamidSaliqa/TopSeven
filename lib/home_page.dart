@@ -1,4 +1,5 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_share/flutter_share.dart';
 import 'package:lottie/lottie.dart';
@@ -14,7 +15,7 @@ class _HomePageState extends State<HomePage> {
     "Lottie",
     "Share",
     "animated_text",
-    "animated_size_and_fade",
+    "carousel_slider",
     "animated_size_and_fade",
     "animated_size_and_fade",
     "animated_size_and_fade",
@@ -86,6 +87,13 @@ class CustomButton extends StatelessWidget {
           builder: (context) => SeconPage(yourWidget: mytext()),
         ),
       );
+    }else if (nameOfLibrary == "carousel_slider") {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => SeconPage(yourWidget: Slider()),
+        ),
+      );
     }
   }
 }
@@ -124,3 +132,24 @@ Widget mytext() {
     ),
   );
 }
+
+Widget Slider (){
+  return CarouselSlider(
+    options: CarouselOptions(height: 400.0),
+    items: [1,2,3,4,5].map((i) {
+      return Builder(
+        builder: (BuildContext context) {
+          return Container(
+              width: MediaQuery.of(context).size.width,
+              margin: EdgeInsets.symmetric(horizontal: 5.0),
+              decoration: BoxDecoration(
+                  color: Colors.deepPurple[900]
+              ),
+              child: Center(child: Text('text $i', style: TextStyle(fontSize: 25.0,color: Colors.white),))
+          );
+        },
+      );
+    }).toList(),
+  );
+}
+
