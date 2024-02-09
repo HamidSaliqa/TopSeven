@@ -13,7 +13,7 @@ class _HomePageState extends State<HomePage> {
     "Share",
     "animated_text",
     "carousel_slider",
-    "animated_size_and_fade",
+    "country_code",
     "animated_size_and_fade",
     "animated_size_and_fade",
   ];
@@ -78,11 +78,11 @@ class CustomButton extends StatelessWidget {
           builder: (context) => SeconPage(yourWidget: myShareButton()),
         ),
       );
-    } else if (nameOfLibrary == "animated_text_kit") {
+    } else if (nameOfLibrary == "animated_text") {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => SeconPage(yourWidget: mytext()),
+          builder: (context) => SeconPage(yourWidget: myText()),
         ),
       );
     } else if (nameOfLibrary == "carousel_slider") {
@@ -90,6 +90,13 @@ class CustomButton extends StatelessWidget {
         context,
         MaterialPageRoute(
           builder: (context) => SeconPage(yourWidget: slider()),
+        ),
+      );
+    } else if (nameOfLibrary == "country_code") {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => SeconPage(yourWidget: codePiker()),
         ),
       );
     }
