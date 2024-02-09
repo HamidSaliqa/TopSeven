@@ -14,7 +14,7 @@ class _HomePageState extends State<HomePage> {
     "animated_text",
     "carousel_slider",
     "country_code",
-    "animated_size_and_fade",
+    "splash",
     "animated_size_and_fade",
   ];
 
@@ -97,6 +97,13 @@ class CustomButton extends StatelessWidget {
         context,
         MaterialPageRoute(
           builder: (context) => SeconPage(yourWidget: codePiker()),
+        ),
+      );
+    } else if (nameOfLibrary == "splash") {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => SeconPage(yourWidget: splash()),
         ),
       );
     }
