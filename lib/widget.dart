@@ -1,3 +1,4 @@
+import 'package:action_slider/action_slider.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -7,9 +8,11 @@ import 'package:flutter_share/flutter_share.dart';
 import 'package:lottie/lottie.dart';
 import 'package:top_seven/second_page.dart';
 
+
 const labelTextStyle = TextStyle(
-  fontSize: 20,
+  fontSize:30,
   fontWeight: FontWeight.bold,
+  fontFamily:'CustomFont',
 );
 
 Widget myLottie() {
@@ -29,7 +32,7 @@ Widget myText() {
     width: 250.0,
     child: DefaultTextStyle(
       style: const TextStyle(
-          fontSize: 40.0, fontFamily: 'Canterbury', color: Colors.black),
+          fontSize: 40.0, fontFamily: 'CustomFont', color: Colors.black),
       child: AnimatedTextKit(
         animatedTexts: [
           ScaleAnimatedText('Welcome'),
@@ -49,17 +52,14 @@ Widget slider() {
       return Builder(
         builder: (BuildContext context) {
           return Container(
-              width: MediaQuery
-                  .of(context)
-                  .size
-                  .width,
+              width: MediaQuery.of(context).size.width,
               margin: EdgeInsets.symmetric(horizontal: 5.0),
               decoration: BoxDecoration(color: Colors.deepPurple[900]),
               child: Center(
                   child: Text(
-                    'text $i',
-                    style: TextStyle(fontSize: 25.0, color: Colors.white),
-                  )));
+                'text $i',
+                style: TextStyle(fontSize: 25.0, color: Colors.white),
+              )));
         },
       );
     }).toList(),
@@ -71,7 +71,7 @@ Widget codePiker() {
     onChanged: print,
     // Initial selection and favorite can be one of code ('IT') OR dial_code('+39')
     initialSelection: 'IT',
-    favorite: ['+93', 'AFG'],
+    favorite: ['+93', 'AF'],
     // optional. Shows only country name and flag
     showCountryOnly: false,
     // optional. Shows only country name and flag when popup is closed.
@@ -81,12 +81,22 @@ Widget codePiker() {
   );
 }
 
-
-
-Widget  splash(){
+Widget splash() {
   return AnimatedSplashScreen(
     splash: 'assets/splash.png',
     nextScreen: SeconPage(yourWidget: Text("Done")),
     splashTransition: SplashTransition.rotationTransition,
+  );
+}
+
+Widget actionSlider(){
+  return ActionSlider.standard(
+      child: const Text('Slide to confirm'),
+      action: (controller) async {
+        controller.loading(); //starts loading animation
+        await Future.delayed(const Duration(seconds: 3));
+        controller.success(); //starts success animation
+      },
+      //many more parameters
   );
 }

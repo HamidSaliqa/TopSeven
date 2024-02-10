@@ -11,11 +11,11 @@ class _HomePageState extends State<HomePage> {
   final List<String> libraryNames = [
     "Lottie",
     "Share",
-    "animated_text",
-    "carousel_slider",
-    "country_code",
+    "animated\ntext",
+    "carousel\nslider",
+    "countrycode",
     "splash",
-    "animated_size_and_fade",
+    "Action Slider",
   ];
 
   @override
@@ -24,7 +24,7 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: Text(
           "Top seven",
-          style: TextStyle(fontSize: 30),
+          style: TextStyle(fontSize: 40, fontFamily: 'CustomFont'),
         ),
         backgroundColor: Colors.deepPurple[900],
       ),
@@ -78,32 +78,32 @@ class CustomButton extends StatelessWidget {
           builder: (context) => SeconPage(yourWidget: myShareButton()),
         ),
       );
-    } else if (nameOfLibrary == "animated_text") {
+    } else if (nameOfLibrary == "animated\ntext") {
       Navigator.push(
         context,
         MaterialPageRoute(
           builder: (context) => SeconPage(yourWidget: myText()),
         ),
       );
-    } else if (nameOfLibrary == "carousel_slider") {
+    } else if (nameOfLibrary == "carouse\nlslider") {
       Navigator.push(
         context,
         MaterialPageRoute(
           builder: (context) => SeconPage(yourWidget: slider()),
         ),
       );
-    } else if (nameOfLibrary == "country_code") {
+    } else if (nameOfLibrary == "countrycode") {
       Navigator.push(
         context,
         MaterialPageRoute(
           builder: (context) => SeconPage(yourWidget: codePiker()),
         ),
       );
-    } else if (nameOfLibrary == "splash") {
+    } else if (nameOfLibrary == "Action Slider") {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => SeconPage(yourWidget: splash()),
+          builder: (context) => SeconPage(yourWidget: actionSlider()),
         ),
       );
     }
